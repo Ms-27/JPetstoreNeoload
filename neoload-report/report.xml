@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE report SYSTEM "report.dtd">
+<report>
+   <summary>
+      <project name="cours_Autom5">
+         <scenario name="scenario1">
+            <loadpolicies>
+               <rampuppolicy add="1" from="1" interval="15.0" max="50" population="Petstore" unit="s"/>
+            </loadpolicies>
+            <startstoppolicies>
+               <startstoppolicy population="Petstore" startdelay="0" startpolicy="START_IMMEDIATE" stopdelay="60" stoppolicy="STOP_IMMEDIATE"/>
+            </startstoppolicies>
+            <loadgenerators>
+               <loadgenerator name="localhost:7100"/>
+            </loadgenerators>
+            <dataFilters>
+               <error-result-filter booleanValue="false"/>
+            </dataFilters>
+            <populations>
+               <population name="Petstore">
+                  <populationSplits>
+                     <populationSplit browserProfileName="iPad" cache="3" connections="4" cookies="true" downloadBandwidth="5Mbps" downloadLatency="40ms" downloadPacketLoss="1%" factor="20.0" name="6_Buyer_authentification" signalStrength="Faible" uploadBandwidth="2Mbps" uploadLatency="40ms" uploadPacketLoss="0%" userAgent="Mozilla/5.0 (iPad; U; CPU OS 4_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8F190 Safari/6533.18.5" wanEmulationProfileName="4G LTE"/>
+                     <populationSplit browserProfileName="Chrome 78.0" cache="3" connections="6" cookies="true" downloadBandwidth="6Mbps" downloadLatency="0ms" downloadPacketLoss="0%" factor="20.0" name="6_Buyer_authentification" signalStrength="Moyen" uploadBandwidth="2Mbps" uploadLatency="0ms" uploadPacketLoss="0%" userAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" wanEmulationProfileName="WiMAX"/>
+                     <populationSplit browserProfileName="Navigateur enregistré" cache="2" connections="6" cookies="true" downloadBandwidth="Illimitée" downloadLatency="0ms" downloadPacketLoss="0%" factor="54.0" name="2_Searcher_TryCatch" signalStrength="" uploadBandwidth="Illimitée" uploadLatency="0ms" uploadPacketLoss="0%" userAgent="" wanEmulationProfileName="Illimitée"/>
+                     <populationSplit browserProfileName="Personnalisé" cache="2" connections="6" cookies="true" downloadBandwidth="Illimitée" downloadLatency="0ms" downloadPacketLoss="0%" factor="6.0" name="2_Searcher_TryCatch" signalStrength="" uploadBandwidth="Illimitée" uploadLatency="0ms" uploadPacketLoss="0%" userAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36 Edg/44.18362.449.0" wanEmulationProfileName="Illimitée"/>
+                  </populationSplits>
+               </population>
+            </populations>
+            <virtual-user-profiles>
+               <virtual-user-profile errorPolicy="DO_NOTHING" failedAssertionPolicy="DO_NOTHING" name="6_Buyer_authentification" pacingEnabled="true" pacingEnd="0" pacingSimpleValue="" pacingStart="">
+                  <thinktime-policy thinkTimeMode="MODE_SIMPLE_THINK_TIME" thinktimeFactorValue="100" thinktimePolicy="1" thinktimeRangeValue="0" thinktimeValue="${ThinkTime}"/>
+               </virtual-user-profile>
+               <virtual-user-profile errorPolicy="DO_NOTHING" failedAssertionPolicy="DO_NOTHING" name="2_Searcher_TryCatch" pacingEnabled="false" pacingEnd="" pacingSimpleValue="" pacingStart="">
+                  <thinktime-policy thinkTimeMode="MODE_SIMPLE_THINK_TIME" thinktimeFactorValue="100" thinktimePolicy="1" thinktimeRangeValue="0" thinktimeValue="${ThinkTime}"/>
+               </virtual-user-profile>
+            </virtual-user-profiles>
+            <rdv-collection/>
+         </scenario>
+         <sla-profiles>
+            <sla-profile name="Profil_sla">
+               <sla-threshold family="Par test" identifier="Temps de réponse moyen de requête" unit="sec.">
+                  <threshold-condition operator="GREATER_THAN" operator-sign="&gt;=" severity="HIGH" value="1.0"/>
+                  <threshold-condition operator="GREATER_THAN" operator-sign="&gt;=" severity="LOW" value="0.5"/>
+               </sla-threshold>
+               <sla-threshold family="Par test" identifier="Taux d'erreur" unit="%">
+                  <threshold-condition operator="GREATER_THAN" operator-sign="&gt;=" severity="HIGH" value="3.0"/>
+                  <threshold-condition operator="GREATER_THAN" operator-sign="&gt;=" severity="LOW" value="2.0"/>
+               </sla-threshold>
+            </sla-profile>
+         </sla-profiles>
+         <sla-profiles-details/>
+         <settings>
+            <truncatedMean centeredInterval="true" percentage="90"/>
+            <percentiles percentage1="50" percentage2="95" percentage3="99"/>
+         </settings>
+      </project>
+      <test build_number="" duration="00:10:30" end="18 sept. 2020 16:46:02" name="04:34 - 18 sept. 2020 (build ${BUILD_NUMBER})_1" start="18 sept. 2020 16:35:32" status="PASS" std_start_time="2020-09-18 16:35:32" terminationReason="POLICY"/>
+      <statistics image="images/summary.png" nameScenario="scenario1">
+         <statistic name="avg_hits/s" severity="none" unit="" value="4,3"/>
+         <statistic name="avg_pages/s" severity="none" unit="" value="3,0"/>
+         <statistic name="avg_reqresponsetime" severity="none" unit="s" value="0,028"/>
+         <statistic name="avg_pageresponsetime" severity="none" unit="s" value="0,04"/>
+         <statistic name="avg_throughput" severity="none" unit=" Mb/s" value="0,12"/>
+         <statistic name="total_pages" severity="none" unit="" value="1899"/>
+         <statistic name="total_hits" severity="none" unit="" value="2703"/>
+         <statistic name="total_users_launched" severity="none" unit="" value="240"/>
+         <statistic name="total_throughput" severity="none" unit=" Mo" value="9,77"/>
+         <statistic name="total_iterations_completed" severity="none" unit="" value="53"/>
+         <statistic name="total_errors" severity="none" unit="" value="68"/>
+         <statistic name="error_percentile" severity="none" unit="%" value="2,5"/>
+         <statistic name="total_logical_actions_errors" severity="none" unit="" value="0"/>
+         <statistic name="total_alerts_percentage" severity="none" unit="%" value="100"/>
+      </statistics>
+      <hotspots>
+         <toperrors>
+            <top count="68" name="/jpetstore/shop/signon.shtml" parentName="SignIn" vuName="6_Buyer_authentification"/>
+         </toperrors>
+         <topalerts>
+            <top count="1" duration="100" name="3.8.187.97/tomcat/RequestProcessor/&quot;http-bio-8080&quot;/% errorCount &gt;= 50.0%" parentName="" severity="low" vuName=""/>
+         </topalerts>
+         <firstalerts/>
+         <topavg>
+            <top count="" duration="0,07" name="/jpetstore/shop/viewItem.shtml" parentName="Select item" vuName="6_Buyer_authentification"/>
+            <top count="" duration="0,053" name="/jpetstore/shop/searchProducts.shtml" parentName="Search" vuName="2_Searcher_TryCatch"/>
+            <top count="" duration="0,052" name="/jpetstore/shop/viewProduct.shtml" parentName="Clic on great companion link" vuName="2_Searcher_TryCatch"/>
+            <top count="" duration="0,037" name="/jpetstore/shop/newOrder.shtml_1" parentName="payment" vuName="6_Buyer_authentification"/>
+            <top count="" duration="0,037" name="/jpetstore/shop/newOrder.shtml" parentName="payment" vuName="6_Buyer_authentification"/>
+         </topavg>
+         <topmax>
+            <top count="" duration="1,17" name="/jpetstore/shop/viewItem.shtml" parentName="Select item" vuName="6_Buyer_authentification"/>
+            <top count="" duration="0,208" name="/jpetstore/shop/viewProduct.shtml" parentName="Clic on great companion link" vuName="2_Searcher_TryCatch"/>
+            <top count="" duration="0,191" name="/jpetstore/shop/searchProducts.shtml" parentName="Search" vuName="2_Searcher_TryCatch"/>
+            <top count="" duration="0,19" name="/jpetstore/shop/index.shtml" parentName="Enter the store" vuName="2_Searcher_TryCatch"/>
+            <top count="" duration="0,183" name="/jpetstore/shop/addItemToCart.shtml" parentName="Add to cart" vuName="6_Buyer_authentification"/>
+         </topmax>
+         <pushtopavg/>
+         <pushtopmax/>
+      </hotspots>
+      <requests-errors-summary>
+         <error-summary count="68" description="Erreur inattendue de l'injecteur pendant la connexion au serveur" name="NL-RUNTIME-02"/>
+         <error-summary count="68" description="Nombre total d'erreurs" name="Total"/>
+      </requests-errors-summary>
+      <logical-actions-errors-summary/>
+      <thirdparty-data-errors-summary/>
+      <alerts-summary>
+         <alert-summary counter="7" criticalCounter="0" name="3.8.187.97/mysql" warningCounter="0"/>
+         <alert-summary counter="7" criticalCounter="0" name="3.8.187.97/tomcat" warningCounter="1"/>
+      </alerts-summary>
+      <all-summary>
+         <statistic-item avg="0,225" error_rate="6,7" errors="16" hits="240" id="ce5c038b-c49b-3c86-a887-9ec9d0057958" max="0,575" median="0" min="0,023" name="Tous les Parcours Utilisateur" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="virtualuser"/>
+         <statistic-item avg="0,04" error_rate="3,6" errors="68" hits="1 899" id="b3b4c2e9-62ea-3b64-b964-846614544b6b" max="1,17" median="0" min="0,02" name="Toutes les pages" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage"/>
+         <statistic-item avg="0,027" error_rate="2,5" errors="68" hits="2 703" id="a181a603-769c-3f98-ad92-7e7367c7aa51" max="1,09" median="0" min="0,02" name="Toutes les requêtes" stddev=" - " truncatedMean="-" type="httprequest"/>
+      </all-summary>
+      <all-transaction-summary>
+         <statistic-item avg="0,061" error_rate="4,2" errors="68" hits="1 633" id="e0dbf49a-8f90-339a-b538-dbc0b4e8401b" max="1,17" median="0,049" min="0,022" name="Toutes les Transactions" percentile1="0,049" percentile2="0,177" percentile3="0,229" stddev="0,057" truncatedMean="0,053" type="container"/>
+      </all-transaction-summary>
+   </summary>
+   <settings graphGranularityOptionEnumValue="" graphSamplingIntervalInSeconds="" isOldProjectVersion="true" neoloadVersion=""/>
+   <shared-elements>
+      <statistic-item avg="0" error_rate="100" errors="68" hits="68" id="2e894838-310c-4d09-ab45-b0ea04ce6e9c" max="0" median="0" min="0" name="SignIn" parentName="Actions" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+         <sla-profiles-details/>
+         <statistic-item avg="0,025" error_rate="0" errors="0" hits="69" id="79efb4a3-2114-44a4-9490-084f8af34213" max="0,101" median="0" min="0,02" name="/jpetstore" parentName="SignIn" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+            <sla-profiles-details/>
+         </statistic-item>
+         <statistic-item avg="0,026" error_rate="0" errors="0" hits="68" id="d32581a2-4481-434a-aaa9-4d43d446e142" max="0,038" median="0" min="0,021" name="/jpetstore/shop/signonForm.shtml" parentName="SignIn" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+            <sla-profiles-details/>
+         </statistic-item>
+         <statistic-item avg="0" error_rate="100" errors="68" hits="68" id="43929a1a-c8d5-4968-93f9-89e7687ad0bc" max="0" median="0" min="0" name="/jpetstore/shop/signon.shtml" parentName="SignIn" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+            <sla-profiles-details/>
+         </statistic-item>
+      </statistic-item>
+      <statistic-item avg="0,072" error_rate="0" errors="0" hits="54" id="e37485d5-d23c-48f8-88af-b87d975802ce" max="0,135" median="0,069" min="0,06" name="payment" parentName="Actions" percentile1="0,069" percentile2="0,08" percentile3="0,135" stddev="0,013" truncatedMean="0,069" type="container">
+         <sla-profiles-details/>
+         <statistic-item avg="0,037" error_rate="0" errors="0" hits="55" id="0b38decb-1c46-4091-b507-6483a2c18c78" max="0,158" median="0" min="0,03" name="/jpetstore/shop/newOrder.shtml" parentName="payment" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+            <sla-profiles-details/>
+         </statistic-item>
+         <statistic-item avg="0,037" error_rate="0" errors="0" hits="54" id="a3012d46-cf18-491f-94b9-ccb92b5beb58" max="0,102" median="0" min="0,028" name="/jpetstore/shop/newOrder.shtml_1" parentName="payment" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+            <sla-profiles-details/>
+         </statistic-item>
+      </statistic-item>
+   </shared-elements>
+   <shared-elements-sla>
+      <statistic-item avg="0" error_rate="100" errors="68" hits="68" id="2e894838-310c-4d09-ab45-b0ea04ce6e9c" max="0" median="0" min="0" name="SignIn" parentName="Actions" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+         <sla-profiles-details/>
+      </statistic-item>
+      <statistic-item avg="0,072" error_rate="0" errors="0" hits="54" id="e37485d5-d23c-48f8-88af-b87d975802ce" max="0,135" median="0,069" min="0,06" name="payment" parentName="Actions" percentile1="0,069" percentile2="0,08" percentile3="0,135" stddev="0,013" truncatedMean="0,069" type="container">
+         <sla-profiles-details/>
+      </statistic-item>
+   </shared-elements-sla>
+   <servers>
+      <server host="3.8.187.97" negociatedProtocol="HTTP/1.1" port="80" supportedProtocol="HTTP/1.1"/>
+   </servers>
+   <zones_statistics avgDurationZonesImage="images/avgDurationZones.png" errorsZonesImage="images/errorsZones.png">
+      <zone_statistics escapedName="@zone par d#E9faut" hitsImage="images/hits_zone_@zone par d%23E9faut.png" loadImage="images/load_zone_@zone par d%23E9faut.png" name="Zone par défaut">
+         <statistic name="nb_of_lgs" severity="none" unit="" value="1"/>
+         <statistic name="avg_hits/s" severity="none" unit="" value="4,3"/>
+         <statistic name="avg_pages/s" severity="none" unit="" value="3,0"/>
+         <statistic name="avg_reqresponsetime" severity="none" unit="s" value="0,028"/>
+         <statistic name="avg_pageresponsetime" severity="none" unit="s" value="0,04"/>
+         <statistic name="avg_throughput" severity="none" unit=" Mb/s" value="0,12"/>
+         <statistic name="total_pages" severity="none" unit="" value="1899"/>
+         <statistic name="total_hits" severity="none" unit="" value="2703"/>
+         <statistic name="total_users_launched" severity="none" unit="" value="0"/>
+         <statistic name="total_throughput" severity="none" unit=" Mo" value="9,77"/>
+         <statistic name="total_iterations_completed" severity="none" unit="" value="0"/>
+         <statistic name="total_errors" severity="none" unit="" value="68"/>
+         <statistic name="error_percentile" severity="none" unit="%" value="2,5"/>
+         <statistic name="total_logical_actions_errors" severity="none" unit="" value="0"/>
+         <statistic name="total_hits_percentage" severity="none" unit="" value="100%"/>
+         <statistic name="avg_pageresponsetime_diff" severity="none" unit="s" value="0%"/>
+         <statistic name="error_percentile_diff" severity="none" unit="%" value="0%"/>
+      </zone_statistics>
+      <global_statistics escapedName="" hitsImage="" loadImage="" name="">
+         <statistic name="nb_of_lgs" severity="none" unit="" value="1"/>
+         <statistic name="avg_hits/s" severity="none" unit="" value="4,3"/>
+         <statistic name="avg_pages/s" severity="none" unit="" value="3,0"/>
+         <statistic name="avg_reqresponsetime" severity="none" unit="s" value="0,028"/>
+         <statistic name="avg_pageresponsetime" severity="none" unit="s" value="0,04"/>
+         <statistic name="avg_throughput" severity="none" unit=" Mb/s" value="0,12"/>
+         <statistic name="total_pages" severity="none" unit="" value="1899"/>
+         <statistic name="total_hits" severity="none" unit="" value="2703"/>
+         <statistic name="total_users_launched" severity="none" unit="" value="240"/>
+         <statistic name="total_throughput" severity="none" unit=" Mo" value="9,77"/>
+         <statistic name="total_iterations_completed" severity="none" unit="" value="53"/>
+         <statistic name="total_errors" severity="none" unit="" value="68"/>
+         <statistic name="error_percentile" severity="none" unit="%" value="2,5"/>
+         <statistic name="total_logical_actions_errors" severity="none" unit="" value="0"/>
+         <statistic name="total_hits_percentage" severity="none" unit="" value="100%"/>
+         <statistic name="avg_pageresponsetime_diff" severity="none" unit="s" value="0%"/>
+         <statistic name="error_percentile_diff" severity="none" unit="%" value="0%"/>
+      </global_statistics>
+   </zones_statistics>
+   <populations_statistics avgDurationPopulationsImage="images/avgDurationPopulations.png" errorsPopulationsImage="images/errorsPopulations.png" scenario="scenario1">
+      <population_statistics name="Petstore">
+         <statistic name="avg_hits/s" severity="none" unit="" value="4,3"/>
+         <statistic name="avg_pages/s" severity="none" unit="" value="3,0"/>
+         <statistic name="avg_reqresponsetime" severity="none" unit="s" value="0,028"/>
+         <statistic name="avg_pageresponsetime" severity="none" unit="s" value="0,04"/>
+         <statistic name="avg_throughput" severity="none" unit=" Mb/s" value="0,12"/>
+         <statistic name="total_pages" severity="none" unit="" value="1899"/>
+         <statistic name="total_hits" severity="none" unit="" value="2703"/>
+         <statistic name="total_users_launched" severity="none" unit="" value="0"/>
+         <statistic name="total_throughput" severity="none" unit=" Mo" value="9,77"/>
+         <statistic name="total_iterations_completed" severity="none" unit="" value="0"/>
+         <statistic name="total_errors" severity="none" unit="" value="68"/>
+         <statistic name="error_percentile" severity="none" unit="%" value="2,5"/>
+         <statistic name="total_logical_actions_errors" severity="none" unit="" value="0"/>
+         <statistic name="total_hits_percentage" severity="none" unit="" value="100%"/>
+         <statistic name="avg_pageresponsetime_diff" severity="none" unit="s" value="0%"/>
+         <statistic name="error_percentile_diff" severity="none" unit="%" value="0%"/>
+      </population_statistics>
+      <global_statistics>
+         <statistic name="avg_hits/s" severity="none" unit="" value="4,3"/>
+         <statistic name="avg_pages/s" severity="none" unit="" value="3,0"/>
+         <statistic name="avg_reqresponsetime" severity="none" unit="s" value="0,028"/>
+         <statistic name="avg_pageresponsetime" severity="none" unit="s" value="0,04"/>
+         <statistic name="avg_throughput" severity="none" unit=" Mb/s" value="0,12"/>
+         <statistic name="total_pages" severity="none" unit="" value="1899"/>
+         <statistic name="total_hits" severity="none" unit="" value="2703"/>
+         <statistic name="total_users_launched" severity="none" unit="" value="240"/>
+         <statistic name="total_throughput" severity="none" unit=" Mo" value="9,77"/>
+         <statistic name="total_iterations_completed" severity="none" unit="" value="53"/>
+         <statistic name="total_errors" severity="none" unit="" value="68"/>
+         <statistic name="error_percentile" severity="none" unit="%" value="2,5"/>
+         <statistic name="total_logical_actions_errors" severity="none" unit="" value="0"/>
+         <statistic name="total_hits_percentage" severity="none" unit="" value="100%"/>
+         <statistic name="avg_pageresponsetime_diff" severity="none" unit="s" value="0%"/>
+         <statistic name="error_percentile_diff" severity="none" unit="%" value="0%"/>
+      </global_statistics>
+   </populations_statistics>
+   <virtual-users>
+      <statistic-item avg="0,225" error_rate="0" errors="0" hits="224" id="2_Searcher_TryCatch" max="0,575" median="0" min="0,023" name="2_Searcher_TryCatch" parentName="Parcours Utilisateur" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="virtualuser">
+         <statistic-item avg="0" error_rate="0" errors="0" hits="224" id="$parent=2_Searcher_TryCatch;$index=0" max="0" median="0" min="0" name="Init" parentName="2_Searcher_TryCatch" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+            <sla-profiles-details/>
+         </statistic-item>
+         <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Actions" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="container">
+            <statistic-item avg="0,158" error_rate="0" errors="0" hits="208" id="8c783c9d-7d23-4f49-a6cb-bad018273f5a" max="0,497" median="0,161" min="0,069" name="Enter the store" parentName="Actions" percentile1="0,161" percentile2="0,233" percentile3="0,467" stddev="0,071" truncatedMean="0,152" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,025" error_rate="0" errors="0" hits="224" id="64242f19-b240-47c8-9bbf-6e9ef5b1cd0e" max="0,19" median="0" min="0,02" name="/jpetstore/shop/index.shtml" parentName="Enter the store" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+               <statistic-item avg="0,053" error_rate="0" errors="0" hits="537" id="0321084b-45cf-4dfb-b9ca-d949a938c7d7" max="0,191" median="0,049" min="0,043" name="Search" parentName="boucle" percentile1="0,049" percentile2="0,056" percentile3="0,181" stddev="0,02" truncatedMean="0,049" type="container">
+                  <sla-profiles-details/>
+                  <statistic-item avg="0,053" error_rate="0" errors="0" hits="537" id="308bb2df-f19e-4a3f-bb59-6537d3de340e" max="0,191" median="0" min="0,043" name="/jpetstore/shop/searchProducts.shtml" parentName="Search" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                     <sla-profiles-details/>
+                  </statistic-item>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,052" error_rate="0" errors="0" hits="207" id="$parent=8c53e371-ab6f-4fcb-a153-776dacc47d5c;$index=0" max="0,208" median="0" min="0,043" name="Try" parentName="try" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,052" error_rate="0" errors="0" hits="207" id="89238c26-00fd-493e-91d2-559d97d5d1de" max="0,208" median="0,049" min="0,043" name="Clic on great companion link" parentName="Try" percentile1="0,049" percentile2="0,056" percentile3="0,18" stddev="0,02" truncatedMean="0,049" type="container">
+                  <sla-profiles-details/>
+                  <statistic-item avg="0,052" error_rate="0" errors="0" hits="207" id="0c93f70a-90b9-4670-bcdf-d4c713bd508c" max="0,208" median="0" min="0,043" name="/jpetstore/shop/viewProduct.shtml" parentName="Clic on great companion link" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                     <sla-profiles-details/>
+                  </statistic-item>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Catch" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="container"/>
+            <statistic-item avg="0,026" error_rate="0" errors="0" hits="200" id="7087cad1-0aef-4385-9dfa-eda5a2e21d3a" max="0,13" median="0,025" min="0,022" name="Select item" parentName="Actions" percentile1="0,025" percentile2="0,029" percentile3="0,076" stddev="0,009" truncatedMean="0,025" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,026" error_rate="0" errors="0" hits="200" id="3d8a7f76-d6e8-4dfd-8b92-62595c6e4d87" max="0,13" median="0" min="0,022" name="/jpetstore/shop/viewItem.shtml" parentName="Select item" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Alors" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="container"/>
+            <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Sinon" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="container"/>
+         </statistic-item>
+         <statistic-item avg="0" error_rate="0" errors="0" hits="224" id="$parent=2_Searcher_TryCatch;$index=2" max="0" median="0" min="0" name="End" parentName="2_Searcher_TryCatch" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+            <sla-profiles-details/>
+         </statistic-item>
+      </statistic-item>
+      <statistic-item avg="0" error_rate="100" errors="16" hits="16" id="6_Buyer_authentification" max="0" median="0" min="0" name="6_Buyer_authentification" parentName="Parcours Utilisateur" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="virtualuser">
+         <statistic-item avg="0" error_rate="0" errors="0" hits="16" id="$parent=6_Buyer_authentification;$index=0" max="0" median="0" min="0" name="Init" parentName="6_Buyer_authentification" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+            <sla-profiles-details/>
+         </statistic-item>
+         <statistic-item avg="0" error_rate="100" errors="53" hits="53" id="$parent=6_Buyer_authentification;$index=1" max="0" median="0" min="0" name="Actions" parentName="6_Buyer_authentification" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+            <sla-profiles-details/>
+            <statistic-item avg="0" error_rate="100" errors="68" hits="68" id="2e894838-310c-4d09-ab45-b0ea04ce6e9c" max="0" median="0" min="0" name="SignIn" parentName="Actions" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,025" error_rate="0" errors="0" hits="69" id="79efb4a3-2114-44a4-9490-084f8af34213" max="0,101" median="0" min="0,02" name="/jpetstore" parentName="SignIn" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+               <statistic-item avg="0,026" error_rate="0" errors="0" hits="68" id="d32581a2-4481-434a-aaa9-4d43d446e142" max="0,038" median="0" min="0,021" name="/jpetstore/shop/signonForm.shtml" parentName="SignIn" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+               <statistic-item avg="0" error_rate="100" errors="68" hits="68" id="43929a1a-c8d5-4968-93f9-89e7687ad0bc" max="0" median="0" min="0" name="/jpetstore/shop/signon.shtml" parentName="SignIn" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,03" error_rate="0" errors="0" hits="66" id="66915e85-8b41-4d7c-a122-4bb1239f4439" max="0,123" median="0,029" min="0,022" name="Select Category" parentName="Actions" percentile1="0,029" percentile2="0,034" percentile3="0,123" stddev="0,015" truncatedMean="0,028" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,03" error_rate="0" errors="0" hits="66" id="f2fdbc6f-6827-4b12-b1f1-f4ab604d31f9" max="0,123" median="0" min="0,022" name="/jpetstore/shop/viewCategory.shtml" parentName="Select Category" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,031" error_rate="0" errors="0" hits="64" id="e66a574c-ee22-495a-b10e-a3c2209f4134" max="0,036" median="0,031" min="0,025" name="Select product" parentName="Actions" percentile1="0,031" percentile2="0,035" percentile3="0,036" stddev="0,003" truncatedMean="0,031" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,031" error_rate="0" errors="0" hits="64" id="cb60b58f-1627-4f32-9f96-8be15022b4c8" max="0,036" median="0" min="0,025" name="/jpetstore/shop/viewProduct.shtml" parentName="Select product" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,07" error_rate="0" errors="0" hits="59" id="fd738b1f-f896-4254-bbe6-fbc8b0341233" max="1,17" median="0,051" min="0,045" name="Select item" parentName="Actions" percentile1="0,051" percentile2="0,057" percentile3="1,17" stddev="0,146" truncatedMean="0,051" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,07" error_rate="0" errors="0" hits="59" id="938ea5be-423c-4bb0-a35f-5a208b23b040" max="1,17" median="0" min="0,045" name="/jpetstore/shop/viewItem.shtml" parentName="Select item" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,034" error_rate="0" errors="0" hits="59" id="11d27885-5415-445d-8cb6-da30c248920a" max="0,183" median="0,031" min="0,026" name="Add to cart" parentName="Actions" percentile1="0,031" percentile2="0,039" percentile3="0,183" stddev="0,022" truncatedMean="0,03" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,034" error_rate="0" errors="0" hits="59" id="70986a6a-80b2-4681-b879-5d3ec0b176d4" max="0,183" median="0" min="0,026" name="/jpetstore/shop/addItemToCart.shtml" parentName="Add to cart" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,058" error_rate="0" errors="0" hits="58" id="82429eb5-ecf1-4307-bbf3-817e049e38a1" max="0,155" median="0,057" min="0,048" name="Proceed checkout" parentName="Actions" percentile1="0,057" percentile2="0,068" percentile3="0,155" stddev="0,014" truncatedMean="0,056" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,032" error_rate="0" errors="0" hits="58" id="4bdcf1ac-49da-4790-8177-45aafed21bb4" max="0,128" median="0" min="0,025" name="/jpetstore/shop/checkout.shtml" parentName="Proceed checkout" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+               <statistic-item avg="0,026" error_rate="0" errors="0" hits="58" id="3a61116f-e505-4537-bce2-f70ded465273" max="0,036" median="0" min="0,021" name="/jpetstore/shop/newOrderForm.shtml" parentName="Proceed checkout" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,072" error_rate="0" errors="0" hits="54" id="e37485d5-d23c-48f8-88af-b87d975802ce" max="0,135" median="0,069" min="0,06" name="payment" parentName="Actions" percentile1="0,069" percentile2="0,08" percentile3="0,135" stddev="0,013" truncatedMean="0,069" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,037" error_rate="0" errors="0" hits="55" id="0b38decb-1c46-4091-b507-6483a2c18c78" max="0,158" median="0" min="0,03" name="/jpetstore/shop/newOrder.shtml" parentName="payment" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+               <statistic-item avg="0,037" error_rate="0" errors="0" hits="54" id="a3012d46-cf18-491f-94b9-ccb92b5beb58" max="0,102" median="0" min="0,028" name="/jpetstore/shop/newOrder.shtml_1" parentName="payment" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+            <statistic-item avg="0,034" error_rate="0" errors="0" hits="53" id="2cb12e1b-21df-4bfd-b11a-8272527a7682" max="0,103" median="0,033" min="0,027" name="logout" parentName="Actions" percentile1="0,033" percentile2="0,038" percentile3="0,103" stddev="0,01" truncatedMean="0,032" type="container">
+               <sla-profiles-details/>
+               <statistic-item avg="0,034" error_rate="0" errors="0" hits="53" id="9c9db44f-7007-49ba-8b79-eb6436124102" max="0,103" median="0" min="0,027" name="/jpetstore/shop/signoff.shtml" parentName="logout" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="-" type="httppage">
+                  <sla-profiles-details/>
+               </statistic-item>
+            </statistic-item>
+         </statistic-item>
+         <statistic-item avg="0" error_rate="0" errors="0" hits="16" id="$parent=6_Buyer_authentification;$index=2" max="0" median="0" min="0" name="End" parentName="6_Buyer_authentification" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="container">
+            <sla-profiles-details/>
+         </statistic-item>
+      </statistic-item>
+   </virtual-users>
+   <virtual-users-sla>
+      <statistic-item avg="0,225" error_rate="0" errors="0" hits="224" id="2_Searcher_TryCatch" max="0,575" median="0" min="0,023" name="2_Searcher_TryCatch" parentName="Parcours Utilisateur" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="virtualuser"/>
+      <statistic-item avg="0" error_rate="100" errors="16" hits="16" id="6_Buyer_authentification" max="0" median="0" min="0" name="6_Buyer_authentification" parentName="Parcours Utilisateur" percentile1=" - " percentile2=" - " percentile3=" - " stddev=" - " truncatedMean="-" type="virtualuser"/>
+   </virtual-users-sla>
+   <media-items>
+      <media-item name="2_Searcher_TryCatch"/>
+      <media-item name="6_Buyer_authentification"/>
+   </media-items>
+   <monitors>
+      <monitored-host name="Contrôleur">
+         <monitor name="Contrôleur">
+            <counters>
+               <statistic-item avg="18,6" error_rate="0" errors="0" hits="0" max="40" median="18" min="0" name="Contrôleur/Charge Utilisateurs" percentile1="0" percentile2="0" percentile3="0" stddev="12,5" truncatedMean="18,4" type="counter"/>
+               <statistic-item avg="0,117" error_rate="0" errors="0" hits="0" max="0,693" median="0,088" min="0" name="Contrôleur/Débit" percentile1="0" percentile2="0" percentile3="0" stddev="0,118" truncatedMean="0,106" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Alertes" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Alertes critiques" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Alertes d'avertissement" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="9,68" error_rate="0" errors="0" hits="0" max="100" median="7" min="0" name="Contrôleur/Charge CPU" percentile1="0" percentile2="0" percentile3="0" stddev="8,8" truncatedMean="8,32" type="counter"/>
+               <statistic-item avg="19,3" error_rate="0" errors="0" hits="0" max="36" median="17" min="0" name="Contrôleur/Mémoire utilisée" percentile1="0" percentile2="0" percentile3="0" stddev="9,42" truncatedMean="19,1" type="counter"/>
+               <statistic-item avg="450,5" error_rate="0" errors="0" hits="0" max="528" median="453" min="0" name="Contrôleur/Nombre de threads" percentile1="0" percentile2="0" percentile3="0" stddev="41,8" truncatedMean="451,2" type="counter"/>
+               <statistic-item avg="0,998" error_rate="0" errors="0" hits="0" max="1" median="1" min="0" name="Contrôleur/Connectés" percentile1="0" percentile2="0" percentile3="0" stddev="0,039" truncatedMean="1" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Total déconnexions" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Total reconnexions" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="692,2" error_rate="0" errors="0" hits="0" max="24 730" median="0" min="0" name="Contrôleur/Réseau/Segments envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev="2 532" truncatedMean="248,6" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/Segments retransmis/s" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="4,21" error_rate="0" errors="0" hits="0" max="168,8" median="0,832" min="0" name="Contrôleur/Réseau/wlan1 (Intel(R) Dual Band Wireless-AC 8265)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev="21,5" truncatedMean="1,1" type="counter"/>
+               <statistic-item avg="0,223" error_rate="0" errors="0" hits="0" max="8,42" median="0,053" min="0" name="Contrôleur/Réseau/wlan1 (Intel(R) Dual Band Wireless-AC 8265)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev="1,08" truncatedMean="0,062" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/eth8 (Realtek PCIe GBE Family Controller)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/eth8 (Realtek PCIe GBE Family Controller)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/eth5 (Bluetooth Device (Personal Area Network))/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/eth5 (Bluetooth Device (Personal Area Network))/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/eth13 (Hyper-V Virtual Ethernet Adapter)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/eth13 (Hyper-V Virtual Ethernet Adapter)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/wlan2 (Microsoft Wi-Fi Direct Virtual Adapter)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/Réseau/wlan2 (Microsoft Wi-Fi Direct Virtual Adapter)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/NeoLoad Web/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Contrôleur/NeoLoad Web/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="18,6" error_rate="0" errors="0" hits="0" max="40" median="18" min="0" name="Contrôleur/Zone par défaut/Charge Utilisateurs" percentile1="0" percentile2="0" percentile3="0" stddev="12,6" truncatedMean="18,4" type="counter"/>
+               <statistic-item avg="18,6" error_rate="0" errors="0" hits="0" max="40" median="18" min="0" name="Contrôleur/Zone par défaut/Petstore/Charge Utilisateurs" percentile1="0" percentile2="0" percentile3="0" stddev="12,5" truncatedMean="18,4" type="counter"/>
+               <statistic-item avg="7,53" error_rate="0" errors="0" hits="0" max="16" median="7" min="0" name="Contrôleur/Zone par défaut/Petstore/6_Buyer_authentification/Charge Utilisateurs" percentile1="0" percentile2="0" percentile3="0" stddev="4,98" truncatedMean="7,5" type="counter"/>
+               <statistic-item avg="11,1" error_rate="0" errors="0" hits="0" max="24" median="11" min="0" name="Contrôleur/Zone par défaut/Petstore/2_Searcher_TryCatch/Charge Utilisateurs" percentile1="0" percentile2="0" percentile3="0" stddev="7,59" truncatedMean="10,95" type="counter"/>
+            </counters>
+            <indicators/>
+            <alerts/>
+         </monitor>
+      </monitored-host>
+      <monitored-host monitor-agent="localhost" name="3.8.187.97">
+         <monitor name="3.8.187.97/mysql">
+            <counters>
+               <statistic-item avg="11" error_rate="0" errors="0" hits="0" max="13" median="12" min="7" name="3.8.187.97/mysql/Connections/threads connected" percentile1="0" percentile2="0" percentile3="0" stddev="2,29" truncatedMean="11,1" type="counter"/>
+               <statistic-item avg="0,009" error_rate="0" errors="0" hits="0" max="0,2" median="0" min="0" name="3.8.187.97/mysql/Connections/aborted clients" percentile1="0" percentile2="0" percentile3="0" stddev="0,042" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Connections/aborted connects" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="13" error_rate="0" errors="0" hits="0" max="13" median="13" min="13" name="3.8.187.97/mysql/Connections/max used" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="13" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Select Rates/select full join" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Select Rates/select range check" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Read Rates/handler read random" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="832,2" error_rate="0" errors="0" hits="0" max="1 225" median="992,2" min="252,4" name="3.8.187.97/mysql/Read Rates/handler read random next" percentile1="0" percentile2="0" percentile3="0" stddev="306,2" truncatedMean="841" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Key Rates/key reads (disk)" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Key Rates/key writes (disk)" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="71,7" error_rate="0" errors="0" hits="0" max="126" median="81" min="0" name="3.8.187.97/mysql/Commands Rates/handler rollback" percentile1="0" percentile2="0" percentile3="0" stddev="31,4" truncatedMean="72,5" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Commands Rates/handler savepoint rollback" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Tables/table locks waited" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="18,3" error_rate="0" errors="0" hits="0" max="18,3" median="18,3" min="18,3" name="3.8.187.97/mysql/Memory/% key buffer size" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="18,3" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Misc./slow queries" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Misc./slow launch threads" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Misc./sort merge passes" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Misc./not flushed delayed rows" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+            </counters>
+            <indicators>
+               <indicator avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/mysql/Description/Database Version" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter">
+                  <value>5.5.59</value>
+               </indicator>
+            </indicators>
+            <alerts/>
+         </monitor>
+         <monitor name="3.8.187.97/http-apache">
+            <counters/>
+            <indicators/>
+            <alerts/>
+         </monitor>
+         <monitor name="3.8.187.97/tomcat">
+            <counters>
+               <statistic-item avg="2 921" error_rate="0" errors="0" hits="0" max="3 475" median="3 124" min="1 872" name="3.8.187.97/tomcat/Session/localhost//jpetstore/activeSessions" percentile1="0" percentile2="0" percentile3="0" stddev="517,7" truncatedMean="2 942" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/Session/localhost//jpetstore/rejectedSessions" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/Session/localhost//jpetstore/% rejectedSessions" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="4,63" error_rate="0" errors="0" hits="0" max="90" median="1" min="0" name="3.8.187.97/tomcat/Session/localhost//jpetstore/expiredSessions" percentile1="0" percentile2="0" percentile3="0" stddev="13,8" truncatedMean="1,67" type="counter"/>
+               <statistic-item avg="0,128" error_rate="0" errors="0" hits="0" max="2" median="0" min="0" name="3.8.187.97/tomcat/RequestProcessor/&quot;ajp-bio-127.0.0.1-8009&quot;/errorCount" percentile1="0" percentile2="0" percentile3="0" stddev="0,359" truncatedMean="0,071" type="counter"/>
+               <statistic-item avg="0,069" error_rate="0" errors="0" hits="0" max="0,071" median="0,069" min="0,066" name="3.8.187.97/tomcat/RequestProcessor/&quot;ajp-bio-127.0.0.1-8009&quot;/% errorCount" percentile1="0" percentile2="0" percentile3="0" stddev="0,001" truncatedMean="0,069" type="counter"/>
+               <statistic-item avg="0,008" error_rate="0" errors="0" hits="0" max="1" median="0" min="0" name="3.8.187.97/tomcat/RequestProcessor/&quot;http-bio-8080&quot;/errorCount" percentile1="0" percentile2="0" percentile3="0" stddev="0,089" truncatedMean="0" type="counter"/>
+               <statistic-item avg="80,5" error_rate="0" errors="0" hits="0" max="80,5" median="80,5" min="80,5" name="3.8.187.97/tomcat/RequestProcessor/&quot;http-bio-8080&quot;/% errorCount" percentile1="0" percentile2="0" percentile3="0" stddev="0,018" truncatedMean="80,5" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/DataSource/localhost//jpetstore/javax.sql.DataSource/&quot;jdbc/jpetstore1&quot;/numActive" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/DataSource/localhost//jpetstore/javax.sql.DataSource/&quot;jdbc/jpetstore1&quot;/% numActive" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/DataSource/localhost//jpetstore/javax.sql.DataSource/&quot;jdbc/jpetstore1&quot;/numIdle" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="20" error_rate="0" errors="0" hits="0" max="20" median="20" min="20" name="3.8.187.97/tomcat/ThreadPool/&quot;ajp-bio-127.0.0.1-8009&quot;/currentThreadsBusy" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="20" type="counter"/>
+               <statistic-item avg="10" error_rate="0" errors="0" hits="0" max="10" median="10" min="10" name="3.8.187.97/tomcat/ThreadPool/&quot;ajp-bio-127.0.0.1-8009&quot;/% currentThreadsBusy" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="10" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/ThreadPool/&quot;http-bio-8080&quot;/currentThreadsBusy" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/ThreadPool/&quot;http-bio-8080&quot;/% currentThreadsBusy" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="142 891 414" error_rate="0" errors="0" hits="0" max="161 565 600" median="142 357 904" min="125 226 448" name="3.8.187.97/tomcat/VM/Memory/Used" percentile1="0" percentile2="0" percentile3="0" stddev="9 268 645" truncatedMean="142 768 352" type="counter"/>
+               <statistic-item avg="7,67" error_rate="0" errors="0" hits="0" max="8,68" median="7,64" min="6,72" name="3.8.187.97/tomcat/VM/Memory/% Used" percentile1="0" percentile2="0" percentile3="0" stddev="0,498" truncatedMean="7,67" type="counter"/>
+               <statistic-item avg="1 862 270 976" error_rate="0" errors="0" hits="0" max="1 862 270 976" median="1 862 270 976" min="1 862 270 976" name="3.8.187.97/tomcat/VM/Memory/Max" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="1 862 270 976" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/VM/Garbage Collector/PS MarkSweep/CollectionTime" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="2,55" error_rate="0" errors="0" hits="0" max="10" median="0" min="0" name="3.8.187.97/tomcat/VM/Garbage Collector/PS Scavenge/CollectionTime" percentile1="0" percentile2="0" percentile3="0" stddev="3,82" truncatedMean="2,27" type="counter"/>
+            </counters>
+            <indicators>
+               <indicator avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/DataSource/localhost//jpetstore/javax.sql.DataSource/&quot;jdbc/jpetstore1&quot;/poolConfiguration" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter">
+                  <value>Minimum Idle Connections: 0, Maximum Idle Connections: 8, Maximum Connections: 8</value>
+                  <value>Maximum Wait Delay (ms): -1</value>
+               </indicator>
+               <indicator avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/ThreadPool/&quot;ajp-bio-127.0.0.1-8009&quot;/threadsConfiguration" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter">
+                  <value>Maximum Threads: 200</value>
+                  <value>Minimum Spare Threads: 10</value>
+                  <value>Maximum Keep Alive: 100</value>
+                  <value>Maximum Connections: 200</value>
+               </indicator>
+               <indicator avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/ThreadPool/&quot;http-bio-8080&quot;/threadsConfiguration" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter">
+                  <value>Maximum Threads: 200</value>
+                  <value>Minimum Spare Threads: 10</value>
+                  <value>Maximum Keep Alive: 100</value>
+                  <value>Maximum Connections: 200</value>
+               </indicator>
+               <indicator avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/Description/JVM" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter">
+                  <value>JVM: 25.242-b08 Oracle Corporation OpenJDK 64-Bit Server VM</value>
+               </indicator>
+               <indicator avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="3.8.187.97/tomcat/Description/Specification/Host" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter">
+                  <value>Operating System: Linux 4.4.23-31.51.amzn1.x86_64 amd64</value>
+                  <value>Number of detected processors: 2</value>
+                  <value>Physical Memory Size: 8374927360 / Swap Space Size: 0</value>
+               </indicator>
+            </indicators>
+            <alerts>
+               <alert comment="Nombre élevé d'erreurs" duration="100" name="3.8.187.97/tomcat/RequestProcessor/&quot;http-bio-8080&quot;/% errorCount &gt;= 50.0%" severity="low" time="00:00:00.263" weight="1"/>
+            </alerts>
+         </monitor>
+      </monitored-host>
+      <monitored-host name="Injecteur localhost:7100">
+         <monitor name="Injecteur localhost:7100">
+            <counters>
+               <statistic-item avg="9,53" error_rate="0" errors="0" hits="0" max="64" median="7" min="0" name="Injecteur localhost:7100/Charge CPU" percentile1="0" percentile2="0" percentile3="0" stddev="8,06" truncatedMean="8,28" type="counter"/>
+               <statistic-item avg="8,55" error_rate="0" errors="0" hits="0" max="16" median="8" min="0" name="Injecteur localhost:7100/Mémoire utilisée" percentile1="0" percentile2="0" percentile3="0" stddev="3,38" truncatedMean="8,43" type="counter"/>
+               <statistic-item avg="0,117" error_rate="0" errors="0" hits="0" max="0,693" median="0,088" min="0" name="Injecteur localhost:7100/Débit" percentile1="0" percentile2="0" percentile3="0" stddev="0,118" truncatedMean="0,106" type="counter"/>
+               <statistic-item avg="18,5" error_rate="0" errors="0" hits="0" max="40" median="18" min="0" name="Injecteur localhost:7100/Charge Utilisateurs" percentile1="0" percentile2="0" percentile3="0" stddev="12,6" truncatedMean="18,4" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Connexion Contrôleur/Déconnexions" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Connexion Contrôleur/Reconnexions" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="3,74" error_rate="0" errors="0" hits="0" max="7" median="3" min="2" name="Injecteur localhost:7100/Connexion Contrôleur/Temps du ping (ms)" percentile1="0" percentile2="0" percentile3="0" stddev="1,31" truncatedMean="3,71" type="counter"/>
+               <statistic-item avg="524" error_rate="0" errors="0" hits="0" max="40 521" median="0" min="0" name="Injecteur localhost:7100/Réseau/Segments envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev="2 917" truncatedMean="51,1" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/Segments retransmis/s" percentile1="0" percentile2="0" percentile3="0" stddev="0" truncatedMean="0" type="counter"/>
+               <statistic-item avg="4,23" error_rate="0" errors="0" hits="0" max="169" median="0,831" min="0,163" name="Injecteur localhost:7100/Réseau/wlan1 (Intel(R) Dual Band Wireless-AC 8265)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev="21,6" truncatedMean="1,09" type="counter"/>
+               <statistic-item avg="0,224" error_rate="0" errors="0" hits="0" max="8,41" median="0,052" min="0" name="Injecteur localhost:7100/Réseau/wlan1 (Intel(R) Dual Band Wireless-AC 8265)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev="1,09" truncatedMean="0,062" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/eth8 (Realtek PCIe GBE Family Controller)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/eth8 (Realtek PCIe GBE Family Controller)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/eth5 (Bluetooth Device (Personal Area Network))/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/eth5 (Bluetooth Device (Personal Area Network))/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/eth13 (Hyper-V Virtual Ethernet Adapter)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/eth13 (Hyper-V Virtual Ethernet Adapter)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/wlan2 (Microsoft Wi-Fi Direct Virtual Adapter)/Megabits reçus/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+               <statistic-item avg="0" error_rate="0" errors="0" hits="0" max="0" median="0" min="0" name="Injecteur localhost:7100/Réseau/wlan2 (Microsoft Wi-Fi Direct Virtual Adapter)/Megabits envoyés/s" percentile1="0" percentile2="0" percentile3="0" stddev=" - " truncatedMean="0" type="counter"/>
+            </counters>
+            <indicators/>
+            <alerts/>
+         </monitor>
+      </monitored-host>
+   </monitors>
+   <dashboards>
+      <dashboard name="Graphes principaux">
+         <graph container="false" custom="false" image="images/pages_avg.png" name="pages.average" percentileOnly="false" title="Temps de réponse moyen (pages)">
+            <statistic-item avg="0,04" max="0,22" median="0,038" min="0" name="pages.average" stddev="0,019" truncatedMean="0,038" type="graphstatistic"/>
+            <note>Affiche le temps de réponse moyen, en secondes, de toutes les pages pendant le test.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/requests_avg.png" name="requests.average" percentileOnly="false" title="Temps de réponse moyen (requêtes)">
+            <statistic-item avg="0,028" max="0,124" median="0,026" min="0" name="requests.average" stddev="0,011" truncatedMean="0,026" type="graphstatistic"/>
+            <note>Affiche le temps de réponse moyen, en secondes, de toutes les requêtes pendant le test.</note>
+         </graph>
+         <graph container="true" custom="false" image="images/containers_avg.png" name="transactions.average" percentileOnly="false" title="Temps de réponse moyen (Transactions)">
+            <statistic-item avg="0,062" max="0,233" median="0,058" min="0" name="transactions.average" stddev="0,026" truncatedMean="0,059" type="graphstatistic"/>
+            <note>Affiche le temps de réponse moyen, en secondes, de toutes les Transactions pendant le test.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/hits.png" name="hits" percentileOnly="false" title="Requêtes par seconde">
+            <statistic-item avg="4,5" max="10,4" median="4,6" min="0,2" name="hits" stddev="2,7" truncatedMean="4,4" type="graphstatistic"/>
+            <note>Affiche le nombre de requêtes jouées par seconde.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/errors.png" name="errors" percentileOnly="false" title="Erreurs">
+            <statistic-item avg="0,6" max="3" median="0" min="0" name="errors" stddev="0,8" truncatedMean="0,5" type="graphstatistic"/>
+            <note>Affiche le nombre d'erreurs par intervalle d'échantillonnage.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/throughput.png" name="throughput" percentileOnly="false" title="Débit">
+            <statistic-item avg="0,12" max="0,34" median="0,12" min="0" name="throughput" stddev="0,08" truncatedMean="0,12" type="graphstatistic"/>
+            <note>Affiche le nombre de mégabits par seconde de données retournés par le serveur.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/pages_avg_user.png" name="pages.average.vu" percentileOnly="false" title="Temps de réponse moyen en fonction de la charge">
+            <statistic-item avg="0,043" max="0,176" median="0,039" min="0,019" name="pages.average.vu" stddev="0,024" truncatedMean="0,039" type="graphstatistic"/>
+            <note>Affiche le temps de réponse moyen, en secondes, de toutes les pages en fonction du nombre d'Utilisateurs Virtuels simultanés.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/percentile.png" name="percentile" percentileOnly="false" title="Distribution de la durée des Transactions">
+            <note>Affiche le pourcentage de Transactions qui ont été jouées avec une durée donné. Ce graphe permet de déterminer le pourcentage de Transactions qui vérifient un objectif de performance donné.Par exemple, le graphe peut montrer que 90% des Transactions ont un durée sous n secondes.</note>
+         </graph>
+         <graph container="false" custom="false" image="images/alerts.png" name="alerts" percentileOnly="false" title="Top 10 des premières alertes">
+            <note>Affiche la liste des alertes sur les compteurs surveillés pendant le test.</note>
+         </graph>
+      </dashboard>
+      <dashboard name="Panneau de graphes">
+         <graph container="false" custom="true" image="images/graph0_8.png" name="graph0_8" percentileOnly="false" title="Requêtes/s et Erreurs/s">
+            <statistic-item avg="19,52" max="40" median="19,5" min="0" statName="Contrôleur/Charge Utilisateurs" stddev="12,66" truncatedMean="19" type="graphstatistic"/>
+            <statistic-item avg="4,4" max="10,4" median="4,6" min="0" statName="&lt;toutes les requêtes&gt; - Éléments/s" stddev="2,76" truncatedMean="4,29" type="graphstatistic"/>
+            <statistic-item avg="0,11" max="0,6" median="0" min="0" statName="&lt;toutes les requêtes&gt; - Erreurs/s" stddev="0,16" truncatedMean="0,09" type="graphstatistic"/>
+         </graph>
+         <graph container="false" custom="true" image="images/graph0_9.png" name="graph0_9" percentileOnly="false" title="3.8.187.97/mysql/Memory/% key buffer size">
+            <statistic-item avg="18,31" max="18,31" median="18,31" min="18,31" statName="3.8.187.97/mysql/Memory/% key buffer size" stddev="0" truncatedMean="18,31" type="graphstatistic"/>
+         </graph>
+      </dashboard>
+   </dashboards>
+</report>
